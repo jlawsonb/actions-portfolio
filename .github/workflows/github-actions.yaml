@@ -10,44 +10,21 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Checking out repository code
         uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - run: sudo pip install -r pkgs.txt
       - run: mkdocs build
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - run: mkdocs gh-deploy --force
+        env:
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+
       - run: echo "🍏 This job's status is ${{ job.status }}."
-
-
-# jobs:
-#   build:
-#     docker:
-#       - *docker_image
-#     steps:
-#       - checkout
-#       - run: sudo pip install -r pkgs.txt
-#       - run: mkdocs build
-#   deploy:
-#     docker:
-#       - *docker_image
-#     steps:
-#       - add_ssh_keys:
-#           fingerprints:
-#             - "c2:53:26:61:d9:7c:b6:93:b1:7c:fd:0b:08:9c:65:24"
-#       - checkout
-#       - run: sudo pip install -r pkgs.txt
-#       - run: mkdocs build
-#       - run: mkdir site/.circleci
-#       - run: cp noopconfig.yml site/.circleci/config.yml
-#       - run: mkdocs gh-deploy
-
-# workflows:
-#   version: 2
-#   build_and_deploy:
-#     jobs:
-#       - build
-#       - deploy:
-#           requires:
-#             - build
-#           filters:
-#             branches:
-#               only: main
