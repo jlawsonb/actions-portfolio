@@ -1,27 +1,22 @@
 name: GitHub Actions
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+run-name: ${{ github.actor }} is testing out GitHub Actions
+on:
+  push:
+    branches:
+      - devel
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Checking out repository code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
-      - run: git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - run: sudo pip install -r pkgs.txt
-      - run: mkdocs build
-      - name: List files in the repository
+      - run: |
+          sudo pip install -r pkgs.txt
+          mkdocs build
+          git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: List files in the repo
         run: |
           ls ${{ github.workspace }}
-      - run: mkdocs gh-deploy --force
-        env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Publish our docs
+        run: mkdocs gh-deploy
+      - run: echo "This job's status is ${{ job.status }}."
