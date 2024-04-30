@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  documentation:
+    build:
+      dockerfile: './Dockerfile'
+      context: '.'
+    ports:
+      - '8000:8000'
+    tty: true
+    working_dir: '/'
+    volumes:
+      - './:/build'
