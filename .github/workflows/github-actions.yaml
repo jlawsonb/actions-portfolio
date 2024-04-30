@@ -3,16 +3,52 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
   Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+    runs-on: python-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: sudo pip install -r pkgs.txt
+      - run: mkdocs build
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+
+
+# jobs:
+#   build:
+#     docker:
+#       - *docker_image
+#     steps:
+#       - checkout
+#       - run: sudo pip install -r pkgs.txt
+#       - run: mkdocs build
+#   deploy:
+#     docker:
+#       - *docker_image
+#     steps:
+#       - add_ssh_keys:
+#           fingerprints:
+#             - "c2:53:26:61:d9:7c:b6:93:b1:7c:fd:0b:08:9c:65:24"
+#       - checkout
+#       - run: sudo pip install -r pkgs.txt
+#       - run: mkdocs build
+#       - run: mkdir site/.circleci
+#       - run: cp noopconfig.yml site/.circleci/config.yml
+#       - run: mkdocs gh-deploy
+
+# workflows:
+#   version: 2
+#   build_and_deploy:
+#     jobs:
+#       - build
+#       - deploy:
+#           requires:
+#             - build
+#           filters:
+#             branches:
+#               only: main
