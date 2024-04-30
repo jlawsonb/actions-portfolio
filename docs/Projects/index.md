@@ -1,6 +1,6 @@
 
 ### Adoption of DevSecOps
-Janet Mihas and I worked closely together to accomplish migrating Conversion 3 from Rock.Framework to RockLib. We overcame the challenge of RockLib's documentation lacking examples for projects in .NET Framework. Later I assisted Tyler Satkowiak and Rahul Sharma with their project of migrating LFH to RockLib.  
+Joe Smith and I worked closely together to accomplish migrating Conversion 3 from Rock.Framework to RockLib. We overcame the challenge of RockLib's documentation lacking examples for projects in .NET Framework. Later I assisted Tyler Satkowiak and Rahul Sharma with their project of migrating LFH to RockLib.  
 * Tools and access
 * Training
 * Security Shift Left
