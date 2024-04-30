@@ -14,9 +14,10 @@ jobs:
           sudo pip install -r pkgs.txt
           mkdocs build
           git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
-      - name: List files in the repo
-        run: |
-          ls ${{ github.workspace }}
-      - name: Publish our docs
+      - uses: actions/configure-pages@v5
+        with:
+          target_branch: gh-pages
+          folder: site
+      - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy
       - run: echo "This job's status is ${{ job.status }}."
