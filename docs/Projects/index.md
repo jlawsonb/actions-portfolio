@@ -30,7 +30,7 @@ Databases need love too. Can't they coexist with applications? This was accompli
 * Met and exceeded IGG expectations for patching/update adherence
 
 ### Tacos
-There was an already established system for importing Shenigans, but after joining ACME Corp we had our first in some time and discovered some issues. I took ownership of the process by identifying what work was needed across applications and teams (LFH, LFH database, OnBase database, and OnBase scripts). This work needed to be completed quickly and I implemented changes to LFH and assisted Pete and Repeat with the system script. This was a project where I demonstrated good leadership:  
+There was an already established system for importing Shenigans, but after joining ACME Corp we had our first in some time and discovered some issues. I took ownership of the process by identifying what work was needed across applications and teams. This work needed to be completed quickly and I implemented changes to LFH and assisted Pete and Repeat with the system script. This was a project where I demonstrated good leadership:  
 
 * Gathered the right people together for troubleshooting  
 * Tracked improvement ideas and bugs during the process  
