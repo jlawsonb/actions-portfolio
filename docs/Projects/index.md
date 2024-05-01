@@ -1,6 +1,6 @@
 
 ### Adoption of DevSecOps
-Joe Smith and I worked closely together to accomplish migrating Conversion 3 from Rock.Framework to RockLib. We overcame the challenge of RockLib's documentation lacking examples for projects in .NET Framework. Later I assisted Tyler Satkowiak and Rahul Sharma with their project of migrating LFH to RockLib.  
+Joe Smith and I worked closely together to accomplish migrating the biggest change ever. We overcame the challenge of fear and doubt about GitHub and the distributed model of source code management. Later I assisted that same person with fine tuning their branch strategy.
 * Tools and access
 * Training
 * Security Shift Left
