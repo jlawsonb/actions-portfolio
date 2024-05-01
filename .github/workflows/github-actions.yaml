@@ -8,8 +8,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out our repository
-        run: rm -rf ${{ github.workspace }}/*
+      # - name: Check out our repository
+      #   run: rm -rf ${{ github.workspace }}/*
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
