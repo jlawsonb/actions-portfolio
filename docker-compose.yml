@@ -8,6 +8,6 @@ services:
     ports:
       - '8000:8000'
     tty: true
-    working_dir: '/'
+    working_dir: '/usr/src/mkdocs'
     volumes:
       - './:/build'
