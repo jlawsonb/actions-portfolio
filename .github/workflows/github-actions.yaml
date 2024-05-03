@@ -5,19 +5,27 @@ on:
     branches:
       - main
 jobs:
-  Explore-GitHub-Actions:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      # - name: Check out our repository
-      #   run: rm -rf ${{ github.workspace }}/*
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - run: |
           sudo pip install -r pkgs.txt
           mkdocs build
-          git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
-      - name: Publish our docs
-        run: mkdocs gh-deploy
-      - run: echo "This job's status is ${{ job.status }}."
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: './site/'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
