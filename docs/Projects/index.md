@@ -9,7 +9,7 @@ Joe Smith and I worked closely together to accomplish migrating the biggest chan
 This is an example of how I have gained confidence in taking on challenges. I took what I've learned from working on POCs and made very fast changes to initially prove we could get it working before committing the time to write cleaner, maintainable code. Janet described my approach as "fearless".  
 
 ### Database Cleanup
-After many years of abuse and neglect, the databased for a number of applications still heavily in use and Tier 1 in impact needed action and improvements. This effort primariliy stemmed from the basic cleanup and organization of user access/groups/connections through to garbage backup tables/personal copies/unnessesary processes.
+After many years of abuse and several stewards, the databases for a number of applications still heavily in use (and top tier for company impact) needed a refresh and some house-cleaning. This effort primariliy stemmed from the basic cleanup and organization of user access/groups/connections through to garbage backup tables/personal copies/unnessesary processes.
 
 * Access fully migrated to group based permissions and grants only along with siginificant reduction of prod access/grants
 * Access restricted to secondary accounts only
