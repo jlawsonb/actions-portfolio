@@ -17,6 +17,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Expose GitHub Runtime
+        uses: crazy-max/ghaction-github-runtime@v2
+      - name: Env
+        run: |
+            # ACTIONS_RUNTIME_TOKEN, ACTIONS_RUNTIME_URL should be exposed
+            env|sort
       - name: Checkout
         uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -47,6 +53,12 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Expose GitHub Runtime
+        uses: crazy-max/ghaction-github-runtime@v2
+      - name: Env
+        run: |
+            # ACTIONS_RUNTIME_TOKEN, ACTIONS_RUNTIME_URL should be exposed
+            env|sort
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
