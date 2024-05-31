@@ -1,0 +1,5 @@
+-s GITHUB_TOKEN
+-e event.json
+--artifact-server-path /tmp/artifacts
+--env ACTIONS_ID_TOKEN_REQUEST_URL=jlawsonb.github.io
+--action-offline-mode
